@@ -4,11 +4,19 @@
       <ul class="nav nav-tabs">
         <!-- This will refresh the page on tab change! we don't want that -->
         <!-- <li role="presentation" class="active"><a href="/">Home</a></li>-->
-        <li role="presentation" class="active"><a routerLink="/">Home</a></li>
-        <li role="presentation"><a routerLink="/servers">Servers</a></li>
+        <li role="presentation" routerLinkActive="active"
+            [routerLinkActiveOptions]="{exact:true}">
+          <a routerLink="/">Home</a>
+        </li>
+        <!-- as / is always true, home tab would have the class="active" always.
+          Add an option 'exact' to override this behaviour -->
+
+        <li role="presentation" routerLinkActive="active">
+          <a routerLink="/servers">Servers</a></li>
 
         <!-- allows to give individual path elements-->
-        <li role="presentation"><a [routerLink]="['/users']">Users</a></li>
+        <li role="presentation" routerLinkActive="active">
+          <a [routerLink]="['/users']">Users</a></li>
       </ul>
     </div>
   </div>
